@@ -3,7 +3,7 @@ Snapcraft file for the generation of xfreerdp snap package.
 
 # Description
 
-FreeRDP is import for "seamless" mode for running Office through Windows VM.
+FreeRDP is important for "seamless" mode for running Office through Windows VM.
 
 [Video Explanation from Level1Linux](https://www.youtube.com/watch?v=0qYf-mehpvg)
 
@@ -18,7 +18,6 @@ Ubuntu 20.04 has FreeRDP 2.2 package. This snapcraft file will allow to generate
 cd xfreerdp
 snapcraft
 ```
-
 
 
 # Package install
