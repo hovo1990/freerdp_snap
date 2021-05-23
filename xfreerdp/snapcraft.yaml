@@ -1,0 +1,117 @@
+name: xfreerdp
+version: 2.3.2
+summary: Unofficial snap for freerdp
+description: |
+  Unofficial snap package for freerdp, this could be very useful for using new version of freerdp with WinApps.
+base: core18
+architectures:
+  - build-on: amd64
+
+
+grade: stable
+confinement: classic
+
+# The path of icon to represent the snap, relative to the source tree directory
+# Only PNG or SVG image is supported, dimension must be greater than 256x256px
+#icon: snap/gui/snap-lotion.png
+
+
+parts:
+  xfreerdp:
+      plugin: cmake
+      source: https://github.com/FreeRDP/FreeRDP.git
+      source-branch: 2.3.2
+      stage-packages:
+        - libasound2
+        - libasyncns0
+        - libavahi-client3
+        - libavahi-common3
+        - libcups2
+        - libflac8
+        - libjpeg-turbo8
+        - libogg0
+        - libpulse0
+        - libsndfile1
+        - libusb-1.0-0
+        - libvorbis0a
+        - libvorbisenc2
+        - libx11-6
+        - libxau6
+        - libxcb1
+        - libxdmcp6
+        - libxkbfile1
+        - libavcodec-dev
+        - libavdevice57 
+        - libavfilter6 
+        - libavresample3 
+        - libpostproc54
+      build-packages:
+        - build-essential
+        - libasound2-dev
+        - libcups2-dev
+        - libjpeg-dev
+        - libpcsclite-dev
+        - libpulse-dev
+        - libssl-dev
+        - libx11-dev
+        - libxcursor-dev
+        - libxdamage-dev
+        - libxext-dev
+        - libxi-dev
+        - libxinerama-dev
+        - libxkbfile-dev
+        - libxrandr-dev
+        - libxv-dev
+        - libgstreamer-plugins-base1.0-dev
+        - libgstreamer1.0-dev
+        - libxml2
+        - libxml2-dev
+        - libssh-dev 
+        - libavcodec-dev
+        - libgnutls28-dev
+        - libusb-1.0-0-dev 
+        - libpcre2-dev
+        - libjson-glib-dev
+        - libavutil-dev
+        - libsecret-1-dev 
+        - libsodium-dev
+      configflags:
+        - -DWITH_PULSE=on
+        - -DWITH_SSE2=ON
+        - -DWITH_CHANNELS=on
+        - -DWITH_CUPS=on
+        - -DWITH_PCSC=on
+        - -DWITH_JPEG=on
+        - -DCMAKE_INSTALL_PREFIX=/snap/$SNAPCRAFT_PROJECT_NAME/current/usr
+      # # XXX: This is an hack to have a kind of bind-mount with absolute prefix.
+      #   - -DCMAKE_INSTALL_PREFIX=/snap/$SNAPCRAFT_PROJECT_NAME/current/usr
+
+      organize:
+        snap/freerdp/current: .
+
+      prime:
+        - -usr/include
+        - -usr/lib/cmake
+        - -usr/lib/pkgconfig
+
+apps:
+  xfreerdp:
+    command: xfreerdp
+    plugs:
+      - avahi-observe
+      - cups-control
+      - mount-observe
+      - browser-support
+      - gsettings
+      - home
+      - login-session-observe
+      - network
+      - network-bind
+      - opengl
+      - pulseaudio
+      - audio-playback
+      - audio-record
+      - removable-media
+      - screen-inhibit-control
+      - unity7
+      - camera

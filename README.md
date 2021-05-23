@@ -1,2 +1,29 @@
 # freerdp_snap
 Snapcraft file for the generation of xfreerdp snap package.
+
+# Description
+
+
+[Video Explanation from Level1Linux](https://www.youtube.com/watch?v=0qYf-mehpvg)
+
+[WinApps](https://github.com/Fmstrat/winapps)
+
+# Build Snap Package
+
+```
+cd xfreerdp
+snapcraft
+```
+
+
+
+# Package install
+
+## note
+
+For Winapps, to be able to mount home folder, the snap package has to be installed with classic confinement.
+
+```
+cd xfreerdp/snaps
+sudo snap install xfreerdp_*_amd64.snap --dangerous --classic
+```
