@@ -98,9 +98,12 @@ parts:
         - libsecret-1-dev 
         - libsodium-dev
       configflags:
+        - -DCMAKE_BUILD_TYPE=Release
+        - -DWITH_WAYLAND=off
         - -DWITH_PULSE=on
         - -DWITH_SSE2=ON
         - -DWITH_CHANNELS=on
+        - -DBUILTIN_CHANNELS=on
         - -DWITH_CUPS=on
         - -DWITH_PCSC=on
         - -DWITH_JPEG=on
