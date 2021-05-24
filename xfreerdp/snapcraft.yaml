@@ -11,16 +11,35 @@ architectures:
 grade: stable
 confinement: classic
 
+# this line enables LZO compression for the snap
+compression: lzo
+
 # The path of icon to represent the snap, relative to the source tree directory
 # Only PNG or SVG image is supported, dimension must be greater than 256x256px
 #icon: snap/gui/snap-lotion.png
 
 
 parts:
+  pulse-utils:
+    plugin: nil
+    stage-packages:
+      - libsndfile1
+      - libxcb1
+      - libasyncns0
+      - libflac8
+      - libvorbisenc2
+      - libxau6
+      - libxdmcp6
+      - libogg0
+      - libvorbis0a
+      - libpulse0
   xfreerdp:
+      after:
+        - pulse-utils
       plugin: cmake
       source: https://github.com/FreeRDP/FreeRDP.git
-      source-branch: 2.3.2
+      source-tag: 2.3.2
+      source-depth: 1
       stage-packages:
         - libasound2
         - libasyncns0
@@ -45,10 +64,13 @@ parts:
         - libavfilter6 
         - libavresample3 
         - libpostproc54
+        - libzvbi0
       build-packages:
         - build-essential
         - libasound2-dev
+        - libavresample-dev
         - libcups2-dev
+        - libffi-dev
         - libjpeg-dev
         - libpcsclite-dev
         - libpulse-dev
@@ -120,3 +142,6 @@ apps:
       - screen-inhibit-control
       - unity7
       - camera
+
+# https://forum.snapcraft.io/t/cant-copy-anything-from-snap-apps/13684
+# https://fossies.org/linux/Remmina/snap/snapcraft.yaml this is a good choice
