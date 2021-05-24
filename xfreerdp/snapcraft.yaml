@@ -158,3 +158,4 @@ apps:
 
 # https://forum.snapcraft.io/t/cant-copy-anything-from-snap-apps/13684
 # https://fossies.org/linux/Remmina/snap/snapcraft.yaml this is a good choice
+# https://unix.stackexchange.com/questions/114645/example-xfreerdp-usage-with-clipboard-plugin clipboard part
