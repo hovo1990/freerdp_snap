@@ -98,6 +98,15 @@ apps:
   xfreerdp:
     command: xfreerdp
     plugs:
+      - x11
+      - wayland
+      - network
+      - home
+      - opengl
+      - audio-playback
+      - desktop
+      - desktop-legacy
+      - screencast-legacy #Access to DBus screenshot APIs
       - avahi-observe
       - cups-control
       - mount-observe
