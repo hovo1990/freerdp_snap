@@ -19,6 +19,14 @@ compression: lzo
 #icon: snap/gui/snap-lotion.png
 
 
+slots:
+  xfreerdp-app:
+    interface: dbus
+    bus: session
+    name: com.freerdp.FreeRDP
+
+
+
 parts:
   pulse-utils:
     plugin: nil
@@ -122,6 +130,8 @@ parts:
 apps:
   xfreerdp:
     command: xfreerdp
+    #extensions: [gnome-3-34]
+    #common-id: com.freerdp.FreeRDP.desktop
     plugs:
       - x11
       - wayland
