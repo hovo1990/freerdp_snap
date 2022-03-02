@@ -1,5 +1,5 @@
 name: xfreerdp
-version: 2.5.0
+version: 2.6.0
 summary: Unofficial snap for freerdp
 description: |
   Unofficial snap package for freerdp, this could be very useful for using new version of freerdp with WinApps.
@@ -46,7 +46,7 @@ parts:
         - pulse-utils
       plugin: cmake
       source: https://github.com/FreeRDP/FreeRDP.git
-      source-tag: 2.5.0
+      source-tag: 2.6.0
       source-depth: 1
       stage-packages:
         - libasound2

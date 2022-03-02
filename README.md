@@ -9,7 +9,7 @@ FreeRDP is important for "seamless" mode for running Office through Windows VM.
 
 [WinApps](https://github.com/Fmstrat/winapps)
 
-Ubuntu 20.04 has FreeRDP 2.2 package. This snapcraft file will allow to generate freerdp snap packages of newer versions.
+Ubuntu 20.04 has FreeRDP 2.6 package. This snapcraft file will allow to generate freerdp snap packages of newer versions.
 This will generate snap package for xfreerdp, which used by WinApps.
 
 # Build Snap Package
